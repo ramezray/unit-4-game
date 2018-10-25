@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>CrystalsCollector Game</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+
+</head>
+
+<body>
+    <div class="container row col-12">
+        <div class="col-3 p-3 bg-primary text-white">CrystalsCollector!</div>
+    </div>
+    <div class="container row col-12">
+        <div class="card col-8 mt-3 bg-primary text-white">
+            <p>
+                You will be given a random number at the start of the game. <br><br>
+                There are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                your total score. <br><br>
+                You win the game by matching your total score to random number, you lose the game if your total score
+                goes above the random number. <br><br>
+                The value of each crstal is hidden from you until you click on it. <br><br>
+                Each time when the game starts, the game will change the values of each crystal.
+            </p>
+        </div>
+
+    </div>
+    <div class="container row col-12 mt-3 ">
+        <div id="randomNum" class="col-2 btn-success mr-2 p-1">
+            
+        </div>
+        <div class="col-2 btn-success p-1 ">
+            <span>WIN: <span id="win"></span></span><br>
+            <span>LOSSES: <span id="losses"></span></span><br>
+            <span>TRIES: <span id="tries">5</span></span><br>
+        </div>
+
+    </div>
+    <div class="container row col-12">
+        <div class="col-1 mt-3 mr-2">
+            <button><img id="crystal-1" class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg"
+                alt="crystals"></button></div>
+        <div class="col-1 mt-3 mr-2">
+            <button><img id="crystal-2" class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg"
+                alt="crystals"></button></div>
+        <div class="col-1 mt-3 mr-2">
+            <button><img id="crystal-3" class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg"
+                alt="crystals"></button></div>
+        <div class="col-1 mt-3 mr-2">
+            <button><img id="crystal-4" class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg"
+                alt="crystals"></button></div>
+    </div>
+    <div class="container rwo col-12">
+        <div class="col-2 bg-primary text-white mt-3 p-3">
+            <h6>You total score is: </h6>
+        </div>
+    </div>
+    <div class="container rwo col-12">
+            <div class="col-2 bg-primary text-white mt-3 pb-5 mb-5">
+                <h6 id="tempScore"></h6>
+            </div>
+        </div>
+
+
+
+</body>
+
+</html>
