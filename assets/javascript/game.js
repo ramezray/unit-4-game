@@ -7,47 +7,67 @@ $(document).ready(function () {
     var hiddenThird = 0;
     var hiddenFourth = 0;
     var tempScore = 0;
-    var tries = 5;
+    pickNumbers();
 
-    
+    // i need to create a for loop to cotain all random numbers that i need to have
+
+    //function to reset the game
+    function reset() {
+        pickNumbers();
+        $("#tempScore").text(0);
+        $("#randomNum").text(computerPickNumber);
+
+        if ($("#youWin").text = "You Won A Point") {
+            setTimeout(function () {
+                clearYouWin()
+            }, 2000);
+        }
+
+        if ($("#youLost").text = "Youu Lost A Point") {
+            setTimeout(function () {
+                clearYouLost()
+            }, 2000);
+        }
+    }
+
+    //list of function below will take each click and added it the score
     function addHiddenFirst() {
         $("#tempScore").text(tempScore = hiddenFirst + tempScore);
-        tries--;
         update();
         checkWine();
     };
 
     function addHiddenSecond() {
         $("#tempScore").text(tempScore = hiddenSecond + tempScore, checkWine);
-        tries--;
         update();
         checkWine();
     };
 
     function addHiddenThird() {
         $("#tempScore").text(tempScore = hiddenThird + tempScore, checkWine);
-        tries--;
         update();
         checkWine();
     };
 
     function addHiddenFourth() {
         $("#tempScore").text(tempScore = hiddenFourth + tempScore, checkWine);
-        tries--;
         update();
         checkWine();
     }
 
-    computerPickNumber = Math.floor(Math.random() * (120) + 19); //pc will random pick num up to 100
-    console.log(computerPickNumber);
-    hiddenFirst = Math.floor((Math.random() * 50) + 1); //pc will random pick num up to 100
-    console.log(hiddenFirst);
-    hiddenSecond = Math.floor((Math.random() * 50) + 1); //pc will random pick num up to 100
-    console.log(hiddenSecond);
-    hiddenThird = Math.floor((Math.random() * 50) + 1); //pc will random pick num up to 100
-    console.log(hiddenThird);
-    hiddenFourth = Math.floor((Math.random() * 50) + 1); //pc will random pick num up to 100
-    console.log(hiddenFourth);
+    function pickNumbers() {
+        computerPickNumber = Math.floor(Math.random() * (120) + 19); //pc will random pick num up to 100
+        console.log(computerPickNumber);
+        hiddenFirst = Math.floor((Math.random() * 12) + 1); //pc will random pick num up to 100
+        console.log(hiddenFirst);
+        hiddenSecond = Math.floor((Math.random() * 12) + 1); //pc will random pick num up to 100
+        console.log(hiddenSecond);
+        hiddenThird = Math.floor((Math.random() * 12) + 1); //pc will random pick num up to 100
+        console.log(hiddenThird);
+        hiddenFourth = Math.floor((Math.random() * 12) + 1); //pc will random pick num up to 100
+        console.log(hiddenFourth);
+    }
+
 
     $("#randomNum").text(computerPickNumber); //display the random number 
 
@@ -56,27 +76,43 @@ $(document).ready(function () {
     $("#crystal-3").on("click", addHiddenThird);
     $("#crystal-4").on("click", addHiddenFourth);
 
+
     function checkWine() {
-        if (computerPickNumber < tempScore) {
-            console.log("win")
+        if (computerPickNumber === tempScore) {
+            youWin();
             wins++;
             update();
-    }};
+            reset();
+            tempScore = 0;
+        } else if (computerPickNumber < tempScore) {
+            youLost();
+            losses++;
+            update();
+            reset();
+            tempScore = 0;
+        }
+    };
 
     function update() {
         $("#win").text(wins);
         $("#losses").text(losses);
-        $("#tries").text(tries)
-
-        if (computerPickNumber > tempScore && tries === 0) {
-            losses++;
-        };
-        if (wins + 1) {
-            tries = 5;
-        }
     }
 
+    function youWin() {
+        $("#youWin").html("You Won A Point");
+    }
+
+    function youLost() {
+        $("#youLost").html("You Lost A Point");
+    }
+
+    function clearYouWin() {
+        $("#youWin").html("")
+    };
+
+    function clearYouLost() {
+        $("#youLost").html("")
+    };;
 
 
-
-});//do not delete this line
+}); //DO NOT DELETE THIS LINE
